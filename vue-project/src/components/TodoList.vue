@@ -6,23 +6,36 @@
       <h1>to do list</h1>
       <ul>
         <li>
-          <input type="checkbox" id="check-one">
-          <label class="check" for="check-one">Task 1</label>
+          <label class="label">
+            <input type="checkbox" class="checkbox">
+            <span class="fake"></span>
+            <span class="text">Task 1</span>
+          </label>
           <button class="delete">&times;</button>
         </li>
         <li>
-          <input type="checkbox">
-          Task 2
+          <label class="label">
+            <input type="checkbox" class="checkbox">
+            <span class="fake"></span>
+            <span class="text">Task 2</span>
+          </label>
           <button class="delete">&times;</button>
         </li>
         <li>
-          <input type="checkbox">
-          Task 3
+          <label class="label">
+            <input type="checkbox" class="checkbox">
+            <span class="fake"></span>
+            <span class="text">Task 3</span>
+          </label>
+          
           <button class="delete">&times;</button>
         </li>
         <li>
-          <input type="checkbox">
-          Task 4
+          <label class="label">
+            <input type="checkbox" class="checkbox">
+            <span class="fake"></span>
+            <span class="text">Task 4</span>
+          </label>
           <button class="delete">&times;</button>
         </li>
       </ul>
@@ -90,7 +103,6 @@
         margin: 0 auto;
         padding: 0 1.875rem;
         li{
-          margin: 0;
           margin-top: 1.5625rem;
           background: #FFDFBE;
           border-radius: 0.625rem;
@@ -101,14 +113,41 @@
           justify-content: space-between;
           @include font-inter ();
           color: #7F4B13;
+          .checkbox{
+            display: none;
+          }
+          .fake{
+            display: inline-block;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 1.5px solid #FEB567;
+            border-radius: 0.3125rem;
+          }
+          .fake::before{
+            content: url("~@/assets/arrow.svg");
+            position: absolute;
+            display: block;
+            transform: translate(-50%, -50%);
+            width: 0.625rem;
+            height: 0.625rem;
+            margin: 0.2rem 0rem 0.5rem 0.2rem;
+            opacity: 0;
+            transition: .2s;
+          }
+          .checkbox:checked + .fake::before{
+            opacity: 1;
+          }
+          .text{
+            padding-left: 1rem;
+          }
           .delete{
-            border: 1.5px solid #FFCA93;
+            border: 0.0938rem solid #FFCA93;
             background: none;
             border-radius: 0.3125rem;
             cursor: pointer;
             color: #FFCA93;
-            width: 32px;
-            height: 32px;
+            width: 1.5rem;
+            height: 1.5rem;
           }
           .delete:hover {
             background-color: #FC8F1A;
@@ -117,7 +156,7 @@
       }
       .add{
         background: #FFECD8;
-        border: 1.5px dashed #FFCA93;
+        border: 0.0938rem dashed #FFCA93;
         box-sizing: border-box;
         border-radius: 0.625rem;
         padding: 0.6875rem 10.4375rem;

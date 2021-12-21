@@ -43,7 +43,7 @@
       <div class="action">
         <div>1/3</div>
         <div class="variants">
-          <p>All</p>
+          <p class="all">All</p>
           <p>Active</p>
           <p>Completed</p>
         </div>
@@ -155,11 +155,13 @@
         }
       }
       .add{
+        width: 90%;
         background: #FFECD8;
         border: 0.0938rem dashed #FFCA93;
         box-sizing: border-box;
         border-radius: 0.625rem;
-        padding: 0.6875rem 10.4375rem;
+        padding: 0.6875rem 0;
+        margin: 0 auto;
         margin-top: 1.5625rem;
         margin-bottom: 1.875rem;
         @include font-inter ();
@@ -168,19 +170,27 @@
       .action{
         background-color: #FFCA93;
         display: flex;
-        justify-content: space-between;
-        padding: 0.6875rem 0.3125rem 0.6875rem 1.875rem;
+        justify-content: space-around;
+        align-items: center;
+        //padding: 0.6875rem 0.3125rem 0.6875rem 1.875rem;
         color: rgba(127, 75, 19, 0.42);
         @include font-open ();
         .variants{
           display: flex;
           justify-content: space-between;
+          .all{
+            border: 0.0625rem solid #C9955D;
+            box-sizing: border-box;
+            border-radius: 0.625rem;
+            padding: 0 0.6875rem;
+          }
           p{
-            margin: 0 0.78125rem;
+            margin: 0.6875rem 0.78125rem;
           }
         }
       }
     }
   }
 } 
+
 </style>

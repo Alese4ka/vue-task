@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <img src="~@/assets/vector.svg">
+    <img src="~@/assets/img/vector.svg">
     <div class="todo">
       <div class="todolist">
       <h1>to do list</h1>
@@ -54,26 +54,13 @@
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-@mixin font-open () {
-  font-family: 'Open Sans', sans-serif;;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-@mixin font-inter () {
-  font-family: 'Inter', sans-serif;;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
+@import "../assets/scss/fonts.scss";
+@import "../assets/scss/mixin.scss";
+@import "../assets/scss/variabels.scss";
 .wrapper{
   margin: 0 auto;
   max-width: 73.625rem;
-  background: linear-gradient(104.11deg, #FF7E5F 14.52%, #FEB567 87.26%);
+  background: $wrapper;
   position: relative;
   img{
     z-index: 1;
@@ -89,12 +76,12 @@
     padding-bottom: 6.625rem;
     .todolist{
       z-index: 99;
-      background: #FFF4E9;
+      background-color: $todolist;
       h1{
         @include font-open ();
         text-align: center;
-        color: #7F4B13;
-        background-color: #FFCA93;
+        color: $h1;
+        background-color: $h1back;
         margin: 0;
         padding: 0.6875rem 0;
       }
@@ -104,7 +91,7 @@
         padding: 0 1.875rem;
         li{
           margin-top: 1.5625rem;
-          background: #FFDFBE;
+          background: $li;
           border-radius: 0.625rem;
           padding: 0.6875rem 0;
           padding-left: 1.25rem;
@@ -112,7 +99,7 @@
           display: flex;
           justify-content: space-between;
           @include font-inter ();
-          color: #7F4B13;
+          color: $h1;
           .checkbox{
             display: none;
           }
@@ -120,11 +107,11 @@
             display: inline-block;
             width: 1.25rem;
             height: 1.25rem;
-            border: 1.5px solid #FEB567;
+            border: 1.5px solid $check;
             border-radius: 0.3125rem;
           }
           .fake::before{
-            content: url("~@/assets/arrow.svg");
+            content: url("~@/assets/img/arrow.svg");
             position: absolute;
             display: block;
             transform: translate(-50%, -50%);
@@ -141,23 +128,23 @@
             padding-left: 1rem;
           }
           .delete{
-            border: 0.0938rem solid #FFCA93;
+            border: 0.0938rem solid $h1back;
             background: none;
             border-radius: 0.3125rem;
             cursor: pointer;
-            color: #FFCA93;
+            color:  $h1back;
             width: 1.5rem;
             height: 1.5rem;
           }
           .delete:hover {
-            background-color: #FC8F1A;
+            background-color: $delete;
           }
         }
       }
       .add{
         width: 90%;
-        background: #FFECD8;
-        border: 0.0938rem dashed #FFCA93;
+        background: $add;
+        border: 0.0938rem dashed $h1back;
         box-sizing: border-box;
         border-radius: 0.625rem;
         padding: 0.6875rem 0;
@@ -165,21 +152,20 @@
         margin-top: 1.5625rem;
         margin-bottom: 1.875rem;
         @include font-inter ();
-        color: #FFCA93;
+        color:  $h1back;
       }
       .action{
-        background-color: #FFCA93;
+        background-color:  $h1back;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        //padding: 0.6875rem 0.3125rem 0.6875rem 1.875rem;
         color: rgba(127, 75, 19, 0.42);
         @include font-open ();
         .variants{
           display: flex;
           justify-content: space-between;
           .all{
-            border: 0.0625rem solid #C9955D;
+            border: 0.0625rem solid $all;
             box-sizing: border-box;
             border-radius: 0.625rem;
             padding: 0 0.6875rem;

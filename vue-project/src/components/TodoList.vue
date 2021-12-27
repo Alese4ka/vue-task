@@ -42,17 +42,29 @@
           <div class="action">
             <div>1/3 left</div>
             <div class="variants">
-              <div class="tasks-btn">
-	              <input id="radio-1" type="radio" name="radio" value="1" checked>
-	              <label for="radio-1">All</label>
+              <div class="tasks-btn"> 
+                <label class="label">
+                  <input type="radio" name="radio" value="1" class="radio" checked>
+                  <span class="fake one">
+                    <span>All</span>
+                  </span>
+                </label>
               </div>
-              <div class="tasks-btn">
-	              <input id="radio-2" type="radio" name="radio" value="2">
-	              <label for="radio-2">Active</label>
+              <div class="tasks-btn"> 
+                <label class="label">
+                  <input type="radio" name="radio" value="1" class="radio" checked>
+                  <span class="fake two">
+                    <span>Active</span>
+                  </span>
+                </label>
               </div>
-              <div class="tasks-btn">
-	              <input id="radio-3" type="radio" name="radio" value="3">
-	              <label for="radio-3">Completed</label>
+              <div class="tasks-btn"> 
+                <label class="label">
+                  <input type="radio" name="radio" value="1" class="radio" checked>
+                  <span class="fake">
+                    <span>Completed</span>
+                  </span>
+                </label>
               </div>
             </div>
           </div>
@@ -106,7 +118,7 @@
             justify-content: space-between;
             @include font-inter ();
             color: $h1;
-            .label {
+            .label{
               flex: 1 1 auto;
               display: flex;
               align-items: center;
@@ -120,7 +132,7 @@
               display: inline-block;
               width: 1.25rem;
               height: 1.25rem;
-              border: 1.5px solid $check;
+              border: 0.0938rem solid $check;
               border-radius: 0.3125rem;
             }
             .fake::before{
@@ -163,10 +175,17 @@
           border: 0.0938rem dashed $h1back;
           box-sizing: border-box;
           border-radius: 0.625rem;
-          padding: 1rem 0;
+          padding: 1rem 1rem;
           margin: 0 auto;
           margin-top: 1.5625rem;
           margin-bottom: 1.875rem;
+          font-size: 1.25rem;
+          @include font-inter();
+          color: $h1;
+          outline: none;
+        }
+        :focus{
+          border: 0.0938rem solid $all;
         }
         ::placeholder { 
           @include font-inter ();
@@ -188,23 +207,44 @@
             display: flex;
             justify-content: space-between;
             .tasks-btn {
-	            display: inline-block;
-              margin-right: 0.625rem;
-            } 
-            .tasks-btn input[type=radio] {
-	            display: none;
-            }
-            .tasks-btn label {
               display: inline-block;
-	            cursor: pointer;
-	            padding: 0rem 0.9375rem;
-	            user-select: none;
-              border: 1px solid $h1back;
-              border-radius: 0.625rem;
+            } 
+            .label{
+              flex: 1 1 auto;
+              display: flex;
+              align-items: center;
             }
-            .tasks-btn input[type=radio]:checked + label {
-              border: 1px solid $all;
+            .tasks-btn input[type=radio] {
+              display: none;
+            }
+            .fake {
+              display: inline-block;
+              cursor: pointer;
+              padding: 0.1rem 1rem 0.1rem 0.5rem;
               border-radius: 0.625rem;
+              position: relative;
+            }
+            .one{
+              padding: 0.1rem 3rem 0.3rem 3rem;
+            }
+            .two{
+              padding: 0.1rem 2.2rem 0.3rem 2.2rem;
+            }
+            .fake::before {
+              content: "";
+              width: 7.5rem;
+              height: 1.7rem;
+              top: 0;
+              left: 0;
+              position: absolute;
+              display: block;
+              border: 0.0625rem solid $all;
+              border-radius: 0.625rem;
+              opacity: 0;
+              transition: .2s;
+            }
+            .tasks-btn input[type=radio]:checked + .fake::before {
+              opacity: 1;
             }
           }
         }

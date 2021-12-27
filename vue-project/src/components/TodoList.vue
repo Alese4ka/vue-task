@@ -203,6 +203,10 @@
           align-items: center;
           color: $action;
           @include font-open ();
+          @media (max-width: 28.125rem) {
+            font-size: 0.8rem;
+            flex-direction: column;
+          }
           .variants{
             display: flex;
             justify-content: space-between;
@@ -223,12 +227,21 @@
               padding: 0.1rem 1rem 0.1rem 0.5rem;
               border-radius: 0.625rem;
               position: relative;
+              @media (max-width: 28.125rem) {
+                padding: 0.1rem 2rem 0.3rem 0.5rem;
+              }
             }
             .one{
               padding: 0.1rem 3rem 0.3rem 3rem;
+              @media (max-width: 28.125rem) {
+                padding: 0.1rem 3rem 0.3rem 2rem;
+              }
             }
             .two{
               padding: 0.1rem 2.2rem 0.3rem 2.2rem;
+              @media (max-width: 28.125rem) {
+                padding: 0.1rem 3rem 0.3rem 1.5rem;
+              }
             }
             .fake::before {
               content: "";
@@ -242,6 +255,9 @@
               border-radius: 0.625rem;
               opacity: 0;
               transition: .2s;
+              @media (max-width: 28.125rem) {
+                width: 5rem;
+              }
             }
             .tasks-btn input[type=radio]:checked + .fake::before {
               opacity: 1;

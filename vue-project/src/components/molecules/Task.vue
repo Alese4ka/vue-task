@@ -36,7 +36,7 @@
 </template>
 
 <style lang="scss" module>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 ul{
   list-style: none;
   margin: 0 auto;

@@ -19,15 +19,15 @@
 <script>
 export default {
   components: {
-    Task: () => import('./Task.vue'),
-    AddTask: () => import('./AddTask.vue'),
-    SwitchTasks: () => import('./SwitchTasks.vue'),
+    Task: () => import('../molecules/Task.vue'),
+    AddTask: () => import('../atoms/AddTask.vue'),
+    SwitchTasks: () => import('../molecules/SwitchTasks.vue'),
   }
 }
 </script>
 
 <style lang="scss" module>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 .main{
   background: $wrapper;
   margin: 0 auto;

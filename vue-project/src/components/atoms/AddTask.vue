@@ -3,7 +3,7 @@
 </template>
 
 <style lang="scss" module>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 .add{
   width: 90%;
   background: $add;

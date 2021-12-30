@@ -4,7 +4,7 @@
       <div :class="$style.todo">
         <div :class="$style.todolist">
           <h1>to do list</h1>
-          <Task />
+          <Tasks />
           <AddTask />
           <div :class="$style.action">
             <div>1/3 left</div>
@@ -19,9 +19,9 @@
 <script>
 export default {
   components: {
-    Task: () => import('../molecules/Tasks.vue'),
-    AddTask: () => import('../atoms/AddTask.vue'),
-    SwitchTasks: () => import('../molecules/SwitchTasks.vue'),
+    Tasks: () => import('@/components/molecules/Tasks.vue'),
+    AddTask: () => import('@/components/atoms/AddTask.vue'),
+    SwitchTasks: () => import('@/components/molecules/SwitchTasks.vue'),
   }
 }
 </script>

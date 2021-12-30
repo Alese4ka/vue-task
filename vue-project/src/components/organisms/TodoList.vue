@@ -19,7 +19,7 @@
 <script>
 export default {
   components: {
-    Task: () => import('../molecules/Task.vue'),
+    Task: () => import('../molecules/Tasks.vue'),
     AddTask: () => import('../atoms/AddTask.vue'),
     SwitchTasks: () => import('../molecules/SwitchTasks.vue'),
   }

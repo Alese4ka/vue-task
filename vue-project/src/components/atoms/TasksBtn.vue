@@ -1,10 +1,10 @@
 <template>
   <div :class="$style.tasksBtn"> 
     <label :class="$style.label">
-      <span v-bind:class="{done: item.isChecked}">
-      <input type="radio" name="radio" value="1" :class="$style.radio" v-on:change="item.isChecked = !item.isChecked">
+      <span>
+      <input type="radio" name="radio" value="1" :class="$style.radio">
       <span :class="$style.fake">
-        <span :class="$style.text" v-for="item in items" :key="item">
+        <span :class="$style.text">
             {{ item.text }}
           </span>
         </span>
@@ -15,15 +15,12 @@
 
 <script>
 export default {
-  data() {
-    return {
-      items: [
-        {id: 1, text: 'All', isChecked: false},
-        {id: 2, text: 'Active', isChecked: true},
-        {id: 3, text: 'Complited', isChecked: false},
-      ]
+  props: {
+    item: {
+      type: Object,
+      required: true
     }
-  },
+  }
 }
 </script>
 
@@ -35,41 +32,26 @@ export default {
     flex: 1 1 auto;
     display: flex;
     align-items: center;
+    margin-right: 0.5rem;
   }
   input[type=radio] {
     display: none;
   }
-  .done{
-    background: red;
-  }
   .fake {
     @include fake-tasks-btn();
-    padding: 0.1rem 1rem 0.1rem 0.5rem;
+    padding: 0.1rem 0.3rem 0.1rem 0;
     @media (max-width: 28.125rem) {
       padding: 0.1rem 2rem 0.3rem 0.5rem;
     }
     .text{
-      margin-left: 2.7rem;
+      margin-right: 0.5rem;
+      margin-left: 1rem;
     }
   }
-  /*.fakeOne{
-    @include fake-tasks-btn();
-    padding: 0.1rem 3rem 0.3rem 3rem;
-    @media (max-width: 28.125rem) {
-      padding: 0.1rem 3rem 0.3rem 2rem;
-    }
-  }
-  .fakeTwo{
-    @include fake-tasks-btn();
-    padding: 0.1rem 2.2rem 0.3rem 2.2rem;
-    @media (max-width: 28.125rem) {
-      padding: 0.1rem 3rem 0.3rem 1.5rem;
-    }
-  }*/
-  .fake::before, .fakeOne::before, .fakeTwo::before {
+  .fake::before{
     content: "";
-    width: 7.5rem;
-    height: 1.7rem;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     position: absolute;
@@ -83,12 +65,6 @@ export default {
     }
   }
   input[type=radio]:checked + .fake::before {
-    opacity: 1;
-  }
-  input[type=radio]:checked + .fakeOne::before {
-    opacity: 1;
-  }
-  input[type=radio]:checked + .fakeTwo::before {
     opacity: 1;
   }
 } 

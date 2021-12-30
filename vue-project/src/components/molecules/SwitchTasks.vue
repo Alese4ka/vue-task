@@ -1,11 +1,22 @@
 <template>
   <div :class="$style.variants">
-    <TasksBtn/>
+    <TasksBtn
+     v-for="item in items" :key="item"
+     v-bind:item="item"/>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      items: [
+        {id: 1, text: 'All', isChecked: true},
+        {id: 2, text: 'Active    ', isChecked: false},
+        {id: 3, text: 'Complited', isChecked: false},
+      ]
+    }
+  },
   components: {
     TasksBtn: () => import('../atoms/TasksBtn.vue'),
   }

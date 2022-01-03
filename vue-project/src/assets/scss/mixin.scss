@@ -12,3 +12,9 @@
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+@mixin fake-tasks-btn() {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.625rem;
+  position: relative;
+}

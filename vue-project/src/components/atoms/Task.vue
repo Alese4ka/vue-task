@@ -1,11 +1,11 @@
 <template>
 <div :class="$style.tasksList">
   <label :class="$style.label">
-      <input type="checkbox" :class="$style.checkbox">
-      <span :class="$style.fake"></span>
-      <span :class="$style.text">
-        {{ task.title }}
-      </span>
+    <input type="checkbox" :class="$style.checkbox"  :checked="isCompleted">
+    <span :class="$style.fake"></span>
+    <span :class="$style.text">
+      {{ task.title }}
+    </span>
   </label>
   <button :class="$style.delete">&times;</button>
   </div>
@@ -15,8 +15,9 @@
 export default {
   props: {
     task: {
-      type: Object,
-      required: true
+      id: Number,
+      title: String,
+      isCompleted: Boolean
     }
   }
 }
@@ -81,6 +82,9 @@ export default {
   }
   .delete:hover {
     background-color: $delete;
+  }
+  .done{
+    text-decoration: line-through;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <div :class="$style.tasksBtn"> 
     <label :class="$style.label">
       <span>
-      <input type="radio" name="radio" value="1" :class="$style.radio">
+      <input type="radio" name="radio" value="1" :class="$style.radio" :checked="isChecked">
       <span :class="$style.fake">
         <span :class="$style.text">
             {{ item.text }}
@@ -17,8 +17,9 @@
 export default {
   props: {
     item: {
-      type: Object,
-      required: true
+      id: Number,
+      text: String,
+      isChecked: Boolean
     }
   }
 }

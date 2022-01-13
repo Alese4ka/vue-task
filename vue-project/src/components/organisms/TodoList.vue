@@ -9,7 +9,7 @@
           <div :class="$style.action">
             <div>1/3 left</div>
             <SwitchTasks />
-          </div>
+          </div>  
         </div>
       </div>
     </div>

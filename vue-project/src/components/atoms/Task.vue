@@ -8,7 +8,7 @@
     </span>
   </label>
   <button :class="$style.delete">&times;</button>
-  </div>
+</div>
 </template>
 
 <script>

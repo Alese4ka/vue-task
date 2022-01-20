@@ -1,25 +1,20 @@
 <template>
   <div :class="$style.tasksList">
     <Task
-    v-for="task in tasks" :key="task"
-    :task="task"/>
+    v-for="task in allTasks" :key="task.title"
+    v-bind:task="task"/>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return{
-      tasks: [
-        {id: 1, title: 'Task 1', isCompleted: false},
-        {id: 2, title: 'Task 2', isCompleted: false},
-        {id: 3, title: 'Task 3', isCompleted: false},
-        {id: 4, title: 'Task 4', isCompleted: false},
-      ]
-    }
-  },
   components: {
     Task: () => import('@/components/atoms/Task.vue'),
+  },
+  computed: {
+    allTasks() {
+      return this.$store.getters.allTasks;
+    }
   }
 }
 </script>

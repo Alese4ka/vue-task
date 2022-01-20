@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.tasksList">
   <label :class="$style.label">
-    <input type="checkbox" :class="$style.checkbox" :checked="isCompleted">
+    <input type="checkbox" :class="$style.checkbox" :checked="isCompleted" @change="set">
     <span :class="$style.fake"></span>
     <span :class="$style.text">
       {{ task.title }}
@@ -18,6 +18,11 @@ export default {
       id: Number,
       title: String,
       isCompleted: Boolean
+    }
+  },
+  methods: {
+    set(id) {
+      this.$store.commit('changeTask', id);
     }
   }
 }

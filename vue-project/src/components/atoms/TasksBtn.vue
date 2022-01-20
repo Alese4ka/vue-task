@@ -10,7 +10,6 @@
         </span>
       </span>
     </label>
-    <div>{{ $store.getters.getPrice }}</div>
   </div>
 </template>
 

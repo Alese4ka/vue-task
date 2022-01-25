@@ -1,15 +1,17 @@
+import { v4 as uuidv4 } from "uuid";
+
 export default({
   state: {
     tasks: [
-      {id: 1, title: 'Task 1', isCompleted: false},
-      {id: 2, title: 'Task 2', isCompleted: false},
-      {id: 3, title: 'Task 3', isCompleted: true},
-      {id: 4, title: 'Task 4', isCompleted: false},
+      {id: uuidv4(), title: 'Task 1', isCompleted: false},
+      {id: uuidv4(), title: 'Task 2', isCompleted: false},
+      {id: uuidv4(), title: 'Task 3', isCompleted: true},
+      {id: uuidv4(), title: 'Task 4', isCompleted: false},
     ],
     items: [
-      {id: 1, text: 'All', isChecked: false},
-      {id: 2, text: 'Active', isChecked: false},
-      {id: 3, text: 'Completed', isChecked: false},
+      {id: uuidv4(), text: 'All', isChecked: false},
+      {id: uuidv4(), text: 'Active', isChecked: false},
+      {id: uuidv4(), text: 'Completed', isChecked: false},
     ],
     filter: 'All'
   },
@@ -36,9 +38,9 @@ export default({
         }
       });
     },
-    deleteTask (state, id) {
-      let i = id - 1
-      state.tasks.splice(i, 1)
+    deleteTask (state, payload) {
+      state.tasks.splice(payload, 1)
+      console.log(state.tasks)
     },
     addTask (state, payload) {
       state.tasks.push({ ...payload })

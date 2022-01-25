@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.variants">
     <TasksBtn
-     v-for="item in allItems" :key="item.text"
+     v-for="item in allItems" :key="item.id"
      v-bind:item="item"/>
   </div>
 </template>

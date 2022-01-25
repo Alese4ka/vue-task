@@ -1,13 +1,13 @@
 <template>
 <div :class="$style.tasksList">
   <label :class="$style.label">
-    <input type="checkbox" :class="$style.checkbox" :checked="isCompleted" @change="set">
+    <input type="checkbox" :class="$style.checkbox" :checked="task.isCompleted" @change="set">
     <span :class="$style.fake"></span>
     <span :class="$style.text">
       {{ task.title }}
     </span>
   </label>
-  <button :class="$style.delete">&times;</button>
+  <button :class="$style.delete" @click="clear">&times;</button>
 </div>
 </template>
 
@@ -21,8 +21,11 @@ export default {
     }
   },
   methods: {
-    set(id) {
-      this.$store.commit('changeTask', id);
+    set() {
+      this.$store.commit('changeTask', this.task.id);
+    },
+    clear () {
+      this.$store.commit('deleteTask', this.task.id);
     }
   }
 }

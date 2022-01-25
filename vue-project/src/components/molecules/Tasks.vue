@@ -1,19 +1,22 @@
 <template>
-  <div :class="$style.tasksList">
+<div>
+  <p v-show="filterTasks==''">No tasks</p>
+  <div :class="$style.tasksList" v-show="filterTasks!==''">
     <Task
-    v-for="task in allTasks" :key="task.title"
+    v-for="task in filterTasks" :key="task.title"
     v-bind:task="task"/>
-  </div>
+  </div> 
+</div>
 </template>
 
 <script>
 export default {
   components: {
-    Task: () => import('@/components/atoms/Task.vue'),
+    Task: () => import('@/components/atoms/Task.vue')
   },
   computed: {
-    allTasks() {
-      return this.$store.getters.allTasks;
+    filterTasks() {
+      return this.$store.getters.filterTasks;
     }
   }
 }
@@ -24,5 +27,8 @@ export default {
 .tasksList{
   margin: 0 auto;
   padding: 0 1.875rem;
+}
+p{
+  font-size: 1.5rem;
 }
 </style>

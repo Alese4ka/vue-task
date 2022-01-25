@@ -1,6 +1,22 @@
 <template>
-  <input type="text" :class="$style.add" placeholder="Add a new task">
+  <input type="text" :class="$style.add" v-model="task.title" placeholder="Add a new task" v-on:keyup.enter="submit">
 </template>
+
+<script>
+export default{
+  data: () => ({
+    task: {
+      title: ''
+    }
+  }),
+  methods: {
+    submit() {
+      this.$store.commit('addTask', this.task)
+      this.task.title = ''
+    },
+  }
+}
+</script>
 
 <style lang="scss" module>
 @import "@/assets/scss/main.scss";

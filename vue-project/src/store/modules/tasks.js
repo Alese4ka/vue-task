@@ -8,17 +8,9 @@ export default({
       {id: uuidv4(), title: 'Task 3', isCompleted: true},
       {id: uuidv4(), title: 'Task 4', isCompleted: false},
     ],
-    items: [
-      {id: uuidv4(), text: 'All', isChecked: false},
-      {id: uuidv4(), text: 'Active', isChecked: false},
-      {id: uuidv4(), text: 'Completed', isChecked: false},
-    ],
     filter: 'All'
   },
   getters: {
-    allItems(state) {
-      return state.items
-    },
     filterTasks(state) {
       if (state.filter == 'All') {
         return state.tasks;
@@ -38,37 +30,14 @@ export default({
         }
       });
     },
-    deleteTask (state, task) {
-      let tasks = state.tasks
-      tasks.splice(tasks.indexOf(task), 1)
+    deleteTask (state, id) {
+      state.tasks = state.tasks.filter((task) => task.id !== id);
     },
     addTask (state, payload) {
       state.tasks.push({...payload})
     },
-    changeBtn (state, id) {
-      state.items.forEach(function(item){
-        if (item.isChecked === true) {
-          item.isChecked = false
-        }
-        if (item.id === id) {
-          item.isChecked = !item.isChecked
-        }
-      })
-    },
     filterBtn (state, text) {
-      state.items.forEach(function(item){
-        if(item.text == text) {
-          if(text == "Active"){
-            state.filter = 'Active'
-          }
-          else if(text == "Completed") {
-            state.filter = 'Completed'
-          }
-          else {
-            state.filter = 'All'
-          }
-        }
-      })
+      state.filter = text
     }
   },
   actions: {

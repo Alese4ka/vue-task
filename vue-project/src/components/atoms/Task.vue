@@ -24,8 +24,8 @@ export default {
     set() {
       this.$store.commit('changeTask', this.task.id);
     },
-    clear (task) {
-      this.$store.commit('deleteTask', task);
+    clear () {
+      this.$store.commit('deleteTask', this.task.id);
     }
   }
 }

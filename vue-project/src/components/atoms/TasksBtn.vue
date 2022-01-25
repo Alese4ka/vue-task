@@ -24,7 +24,6 @@ export default {
   },
   methods: {
     select() {
-      this.$store.commit('changeBtn', this.item.id)
       this.$store.commit('filterBtn', this.item.text)
     }
   }

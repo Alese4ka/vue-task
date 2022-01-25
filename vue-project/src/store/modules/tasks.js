@@ -43,7 +43,7 @@ export default({
       console.log(state.tasks)
     },
     addTask (state, payload) {
-      state.tasks.push({ ...payload })
+      state.tasks.push({...payload})
     },
     changeBtn (state, id) {
       state.items.forEach(function(item){

@@ -38,9 +38,9 @@ export default({
         }
       });
     },
-    deleteTask (state, payload) {
-      state.tasks.splice(payload, 1)
-      console.log(state.tasks)
+    deleteTask (state, task) {
+      let tasks = state.tasks
+      tasks.splice(tasks.indexOf(task), 1)
     },
     addTask (state, payload) {
       state.tasks.push({...payload})

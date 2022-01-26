@@ -30,5 +30,7 @@ export default {
 }
 p{
   font-size: 1.5rem;
+  color: $h1;
+  padding-top: 1rem;
 }
 </style>

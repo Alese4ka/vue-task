@@ -5,7 +5,7 @@ export default({
     tasks: [
       {id: uuidv4(), title: 'Task 1', isCompleted: false},
       {id: uuidv4(), title: 'Task 2', isCompleted: false},
-      {id: uuidv4(), title: 'Task 3', isCompleted: true},
+      {id: uuidv4(), title: 'Task 3', isCompleted: false},
       {id: uuidv4(), title: 'Task 4', isCompleted: false},
     ],
     filter: 'All'
@@ -21,6 +21,12 @@ export default({
       }
       return state.tasks;
     },
+    getNumberAll(state){
+      return state.tasks
+    },
+    getNumberCompleted(state){
+      return state.tasks.filter(task => task.isCompleted);
+    }
   },
   mutations: {
     changeTask (state, id) {

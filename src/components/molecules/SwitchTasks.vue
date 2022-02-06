@@ -1,22 +1,22 @@
 <template>
   <div :class="$style.variants">
     <TasksBtn
-     v-for="item in items" :key="item"
+     v-for="item in items" :key="item.id"
      v-bind:item="item"/>
   </div>
 </template>
 
 <script>
+import { v4 as uuidv4 } from "uuid";
+
 export default {
-  data() {
-    return {
-      items: [
-        {id: 1, text: 'All', isChecked: true},
-        {id: 2, text: 'Active    ', isChecked: false},
-        {id: 3, text: 'Complited', isChecked: false},
-      ]
-    }
-  },
+  data: () => ({
+    items: [
+      {id: uuidv4(), text: 'All', isChecked: false},
+      {id: uuidv4(), text: 'Active', isChecked: false},
+      {id: uuidv4(), text: 'Completed', isChecked: false},
+    ]
+  }),
   components: {
     TasksBtn: () => import('@/components/atoms/TasksBtn.vue'),
   }

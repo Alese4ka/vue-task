@@ -1,6 +1,26 @@
 <template>
-  <input type="text" :class="$style.add" placeholder="Add a new task">
+  <input type="text" :class="$style.add" v-model="task.title" placeholder="Add a new task" v-on:keyup.enter="submit">
 </template>
+
+<script>
+import { v4 as uuidv4 } from "uuid";
+
+export default{
+  data: () => ({
+    task: {
+      id: uuidv4(),
+      title: '',
+      isCompleted: false
+    }
+  }),
+  methods: {
+    submit() {
+      this.$store.commit('addTask', this.task)
+      this.task.title = ''
+    },
+  }
+}
+</script>
 
 <style lang="scss" module>
 @import "@/assets/scss/main.scss";

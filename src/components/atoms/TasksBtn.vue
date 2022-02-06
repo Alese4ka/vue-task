@@ -2,9 +2,9 @@
   <div :class="$style.tasksBtn"> 
     <label :class="$style.label">
       <span>
-      <input type="radio" name="radio" value="1" :class="$style.radio" :checked="isChecked">
-      <span :class="$style.fake">
-        <span :class="$style.text">
+        <input type="radio" name="radio" value="1" :class="$style.radio" :checked="item.isChecked" @change="select">
+        <span :class="$style.fake">
+          <span :class="$style.text">
             {{ item.text }}
           </span>
         </span>
@@ -20,6 +20,11 @@ export default {
       id: Number,
       text: String,
       isChecked: Boolean
+    }
+  },
+  methods: {
+    select() {
+      this.$store.commit('filterBtn', this.item.text)
     }
   }
 }

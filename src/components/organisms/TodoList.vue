@@ -24,9 +24,6 @@ export default {
     SwitchTasks: () => import('@/components/molecules/SwitchTasks.vue'),
   },
   computed: {
-    filterTasks() {
-      return this.$store.getters.filterTasks;
-    },
     getNumberAll() {
       return this.$store.getters.getNumberAll;
     },

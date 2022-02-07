@@ -10,6 +10,9 @@
 
 <script>
 export default {
+  data() {
+    return {text: ''}
+  },
   methods: {
     submit() {
       this.$store.commit("addTask", this.text);

@@ -2,12 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export default({
   state: {
-    tasks: JSON.parse(localStorage.getItem('tasks') || [
-      {id: uuidv4(), title: 'Task 1', isCompleted: false},
-      {id: uuidv4(), title: 'Task 2', isCompleted: false},
-      {id: uuidv4(), title: 'Task 3', isCompleted: false},
-      {id: uuidv4(), title: 'Task 4', isCompleted: false},
-    ]),
+    tasks: JSON.parse(localStorage.getItem('tasks')) || new Array(),
     filter: 'All'
   },
   getters: {
@@ -41,8 +36,12 @@ export default({
       state.tasks = state.tasks.filter((task) => task.id !== id);
       localStorage.setItem('tasks',JSON.stringify(state.tasks))
     },
-    addTask (state, payload) {
-      state.tasks.push({...payload});
+    addTask (state, text) {
+      state.tasks.push({
+        id: uuidv4(),
+        title: text,
+        isComplete: false
+      });
       localStorage.setItem('tasks',JSON.stringify(state.tasks))
     },
     filterBtn (state, text) {

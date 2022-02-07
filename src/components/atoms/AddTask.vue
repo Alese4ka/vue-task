@@ -1,30 +1,27 @@
 <template>
-  <input type="text" :class="$style.add" v-model="task.title" placeholder="Add a new task" v-on:keyup.enter="submit">
+  <input
+    type="text"
+    :class="$style.add"
+    v-model="text"
+    placeholder="Add a new task"
+    v-on:keyup.enter="submit"
+  />
 </template>
 
 <script>
-import { v4 as uuidv4 } from "uuid";
-
-export default{
-  data: () => ({
-    task: {
-      id: uuidv4(),
-      title: '',
-      isCompleted: false
-    }
-  }),
+export default {
   methods: {
     submit() {
-      this.$store.commit('addTask', this.task)
-      this.task.title = ''
+      this.$store.commit("addTask", this.text);
+      this.text = "";
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" module>
 @import "@/assets/scss/main.scss";
-.add{
+.add {
   width: 90%;
   background: $add;
   border: 0.0938rem dashed $h1back;
@@ -39,12 +36,12 @@ export default{
   color: $h1;
   outline: none;
 }
-:focus{
+:focus {
   border: 0.0938rem solid $all;
 }
-::placeholder { 
-  @include font-inter ();
-  color:  $h1back;
+::placeholder {
+  @include font-inter();
+  color: $h1back;
   text-align: center;
 }
 :focus::placeholder {

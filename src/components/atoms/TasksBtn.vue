@@ -2,10 +2,10 @@
   <div :class="$style.tasksBtn"> 
     <label :class="$style.label">
       <span>
-        <input type="radio" name="radio" value="1" :class="$style.radio" :checked="item.isChecked" @change="select">
+        <input type="radio" name="radio" value="1" :class="$style.radio" :checked="isChecked" @change="select">
         <span :class="$style.fake">
           <span :class="$style.text">
-            {{ item.text }}
+            {{ text }}
           </span>
         </span>
       </span>
@@ -16,15 +16,19 @@
 <script>
 export default {
   props: {
-    item: {
-      id: Number,
-      text: String,
-      isChecked: Boolean
+    id: {
+      type: Number
+    },
+    text: {
+      type: String
+    },
+    isChecked: {
+      type: Boolean
     }
   },
   methods: {
     select() {
-      this.$store.commit('filterBtn', this.item.text)
+      this.$store.commit('filterBtn', this.text)
     }
   }
 }

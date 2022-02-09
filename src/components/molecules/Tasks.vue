@@ -3,8 +3,11 @@
   <p v-if="filterTasks==''">No tasks</p>
   <div :class="$style.tasksList" v-else>
     <Task
-    v-for="task in filterTasks" :key="task.id"
-    v-bind:task="task"/>
+    v-for="task in filterTasks" 
+    :key="task.id"
+    :id="task.id"
+    :title="task.title"
+    :isCompleted="task.isCompleted"/>
   </div> 
 </div>
 </template>

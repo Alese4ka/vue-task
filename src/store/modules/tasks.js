@@ -16,6 +16,9 @@ export default({
       }
       return state.tasks;
     },
+    getTasks(state) {
+      return state.tasks;
+    },
     getNumberAll(state){
       return state.tasks
     },

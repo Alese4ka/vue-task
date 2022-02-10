@@ -7,7 +7,7 @@
           <Tasks />
           <AddTask />
           <div :class="$style.action">
-            <div>{{getNumberCompleted.length}}/{{getNumberAll.length}} left</div>
+            <div>{{getNumberCompleted}}/{{getNumberAll}} left</div>
             <SwitchTasks />
           </div>  
         </div>

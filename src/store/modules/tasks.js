@@ -43,7 +43,7 @@ export default({
       state.tasks.push({
         id: uuidv4(),
         title: text,
-        isComplete: false
+        isCompleted: false
       });
       localStorage.setItem('tasks',JSON.stringify(state.tasks))
     },

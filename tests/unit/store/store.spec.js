@@ -23,6 +23,19 @@ describe("tests for store", () => {
     store.commit("deleteTask", store.state.tasks[0]);
     expect(store.state.tasks[0]).toBe(false);
   });
+  it("filterBtn", () => {
+    let filter = "Active";
+    store.commit("filterBtn", filter);
+    expect(store.state.filter).toBe("Active");
+  });
+  it("filterTasks", () => {
+    store.state.filter = "All";
+    expect(store.getters.filterTasks).toBe(store.state.tasks);
+    store.state.filter = "Active";
+    expect(store.getters.filterTasks.length).toBe(1);
+    store.state.filter = "Completed";
+    expect(store.getters.filterTasks.length).toBe(1);
+  });
   it("getNumberAll", () => {
     const lengthAll = 1
     const result = store.getters.getNumberAll

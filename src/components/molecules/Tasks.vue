@@ -13,9 +13,10 @@
 </template>
 
 <script>
+import Task from '@/components/atoms/Task.vue'
 export default {
   components: {
-    Task: () => import('@/components/atoms/Task.vue')
+    Task
   },
   computed: {
     filterTasks() {

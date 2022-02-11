@@ -12,20 +12,15 @@ describe("test for TodoList", () => {
   beforeEach(() => {
     getters = {
       getNumberAll: jest.fn(),
-      //getNumberCompleted: jest.fn(),
     };
     store = new Vuex.Store({
       getters,
     });
   });
 
-  it("getNumberAll", () => {
-    const wrapper = shallowMount(TodoList, { store, localVue })
-    expect(wrapper.find(".tasks").exists()).toBe(false)
+  it("render a Tasks", () => {
+    const wrapper = shallowMount(TodoList, { store, localVue });
+    expect(wrapper.find(".action")).toBeTruthy();
+    expect(wrapper.isVisible()).toBe(true);
   });
-  /*it("getNumberCompleted", () => {
-    const wrapper = shallowMount(TodoList, { store, localVue })
-    wrapper.find('input[type="checkbox"]').trigger("click");
-    expect(getters.getNumberCompleted).toHaveBeenCalled();
-  });*/
 })

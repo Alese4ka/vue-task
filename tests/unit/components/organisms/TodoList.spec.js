@@ -12,13 +12,19 @@ describe("test for TodoList", () => {
   beforeEach(() => {
     getters = {
       getNumberAll: jest.fn(),
+      getNumberCompleted: jest.fn(),
     };
     store = new Vuex.Store({
       getters,
     });
   });
 
-  it("render a Tasks", () => {
+  it("render a allTasks", () => {
+    const wrapper = shallowMount(TodoList, { store, localVue });
+    expect(wrapper.find(".action")).toBeTruthy();
+    expect(wrapper.isVisible()).toBe(true);
+  });
+  it("render a completedTasks", () => {
     const wrapper = shallowMount(TodoList, { store, localVue });
     expect(wrapper.find(".action")).toBeTruthy();
     expect(wrapper.isVisible()).toBe(true);

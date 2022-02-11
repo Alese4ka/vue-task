@@ -18,7 +18,7 @@ describe("test for Tasks", () => {
     });
   });
 
-  it("render a Tab", () => {
+  it("render a Tasks", () => {
     const wrapper = shallowMount(Tasks, { store, localVue })
     expect(wrapper.find(".tasksList ")).toBeTruthy();
     expect(wrapper.isVisible()).toBe(true);

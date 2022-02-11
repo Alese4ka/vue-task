@@ -23,21 +23,14 @@ describe("tests for store", () => {
     store.commit("deleteTask", store.state.tasks[0]);
     expect(store.state.tasks[0]).toBe(false);
   });
+  it("getNumberAll", () => {
+    const lengthAll = 1
+    const result = store.getters.getNumberAll
+    expect(result).toEqual(lengthAll)
+  });
+  it("getNumberCompleted", () => {
+    const lengthCompleted = 0
+    const result = store.getters.getNumberCompleted
+    expect(result).toEqual(lengthCompleted)
+  });
 });
-
-
-test('returns first 20 items if state.page value is 1', () => {
-  const items = Array(22)
-    .fill()
-    .map((v, i) => i)
-
-  const state = {
-    items,
-    page: 1
-  }
-
-  const result = getters.displayItems(state)
-
-  expect(result).toHaveLength(20)
-  expect(result).toEqual(items.slice(0, 20))
-})

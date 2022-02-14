@@ -1,8 +1,11 @@
 <template>
   <div :class="$style.variants">
     <TasksBtn
-     v-for="item in items" :key="item.id"
-     v-bind:item="item"/>
+     v-for="item in items" 
+     :key="item.id"
+     :id="item.id"
+     :text="item.text"
+     :isChecked="item.isChecked"/>
   </div>
 </template>
 

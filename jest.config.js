@@ -1,11 +1,3 @@
-const config = {
-  verbose: true,
-};
-
-module.exports = config;
-
-module.exports = async () => {
-  return {
-    verbose: true,
-  };
+module.exports = {
+  preset: "@vue/cli-plugin-unit-jest",
 };

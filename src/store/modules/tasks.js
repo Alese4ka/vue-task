@@ -17,10 +17,10 @@ export default({
       return state.tasks;
     },
     getNumberAll(state){
-      return state.tasks
+      return state.tasks.length
     },
     getNumberCompleted(state){
-      return state.tasks.filter(task => task.isCompleted);
+      return state.tasks.filter(task => task.isCompleted).length;
     }
   },
   mutations: {
@@ -40,7 +40,7 @@ export default({
       state.tasks.push({
         id: uuidv4(),
         title: text,
-        isComplete: false
+        isCompleted: false
       });
       localStorage.setItem('tasks',JSON.stringify(state.tasks))
     },

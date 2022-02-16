@@ -22,7 +22,9 @@ describe('My First Test', () => {
       //Check tabs
       cy.get('input[type="radio"]').check('1', { force: true }).should('be.checked')
       //Check delete function
-      cy.get('button').trigger('click');  
+      cy.get('button').trigger('click'); 
+      //Check length array
+      cy.get('input[type=checkbox]').should('have.length', 0) 
     });
   //})
 });

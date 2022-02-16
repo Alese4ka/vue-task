@@ -1,6 +1,7 @@
 {
   "name": "vue-project",
   "version": "0.1.0",
+  "homepage": "https://alese4ka.github.io/vue-task/",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,7 +9,8 @@
     "test:unit": "vue-cli-service test:unit --coverage",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "test": "jest"
+    "test": "jest",
+    "build-gh-pages": "gh-pages -d dist"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -31,6 +33,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^6.2.2",
+    "gh-pages": "^3.2.3",
     "prettier": "^2.2.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",

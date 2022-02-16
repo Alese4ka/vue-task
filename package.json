@@ -1,7 +1,7 @@
 {
   "name": "vue-project",
   "version": "0.1.0",
-  "homepage": "https://alese4ka.github.io/vue-task/",
+  "homepage": "https://alese4ka.github.io/vue-task",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
